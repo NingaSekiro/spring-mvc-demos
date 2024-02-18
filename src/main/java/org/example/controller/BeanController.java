@@ -33,12 +33,15 @@ public class BeanController implements ApplicationContextAware {
     }
 
     @GetMapping("/test")
-    public String test() {
-        return "Hello World";
+    public User test() {
+        User user=new User();
+        user.setName("sadasd");
+        user.setAge(18);
+        return user;
     }
 
-    @GetMapping(value = "/user")
-    public String user(@Valid User user, BindingResult bindingResult) {
+    @PostMapping(value = "/user")
+    public String user(@RequestBody User user, BindingResult bindingResult) {
         return user.toString();
     }
     public String convert(String name) {
