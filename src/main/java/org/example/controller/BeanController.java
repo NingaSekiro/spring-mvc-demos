@@ -16,7 +16,7 @@ import javax.validation.Valid;
 
 
 @RestController
-public class BeanController implements ApplicationContextAware {
+public class BeanController {
 
     @Autowired
     private ApplicationContext applicationContext;
@@ -34,7 +34,7 @@ public class BeanController implements ApplicationContextAware {
 
     @GetMapping("/test")
     public User test() {
-        User user=new User();
+        User user = new User();
         user.setName("sadasd");
         user.setAge(18);
         return user;
@@ -44,12 +44,8 @@ public class BeanController implements ApplicationContextAware {
     public String user(@RequestBody User user, BindingResult bindingResult) {
         return user.toString();
     }
+
     public String convert(String name) {
         return "Hello " + name;
-    }
-
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        System.out.println("controller"+applicationContext);
     }
 }
