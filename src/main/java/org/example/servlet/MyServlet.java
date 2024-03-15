@@ -23,7 +23,8 @@ public class MyServlet extends HttpServlet {
     @Autowired
     private WebApplicationContext webApplicationContext;
     @Autowired
-    private MyServletImpl myServletImpl;
+    private IServlet myServletImpl;
+    public static final ThreadLocal<HttpServletRequest> requestThreadLocal = new ThreadLocal<>();
 
     @Override
     public void init() throws ServletException {
@@ -33,6 +34,8 @@ public class MyServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        myServletImpl.doPost(req, resp);
+        requestThreadLocal.set(req);
+        String s = myServletImpl.doPost(req, resp);
+        resp.getWriter().write(s);
     }
 }

@@ -1,18 +1,12 @@
 package org.example.controller;
 
-import com.alibaba.fastjson.JSON;
 import org.example.annotation.OperationLog;
-import org.example.exception.BaseRuntimeException;
 import org.example.model.User;
 import org.example.service.BeanService;
-import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
 
 
 @RestController

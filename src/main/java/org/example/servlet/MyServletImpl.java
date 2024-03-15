@@ -8,10 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Service
-public class MyServletImpl {
+public class MyServletImpl implements IServlet {
     @OperationLog(type = "{convert('sdsadasd')}")
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        int i=1/0;
-        resp.getWriter().write("sadas");
+    public String doPost(HttpServletRequest req, HttpServletResponse resp)  {
+        return "impl";
     }
 }
